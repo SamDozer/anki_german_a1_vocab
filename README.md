@@ -2,7 +2,8 @@
 
 > **This is a fork of [patsytau/anki_german_a1_vocab](https://github.com/patsytau/anki_german_a1_vocab).**
 > All credit for the original deck, translations and audio goes to the original author.
-> This fork adds the missing first page of the word list, fixes a few errors, and adds context hints.
+> This fork adds the missing first page of the word list, fixes a few errors, adds context hints,
+> and adds English → German cards with a cleaner, night-mode-friendly design.
 > See [Changes in this fork](#changes-in-this-fork) below. The original README follows unchanged.
 
 ## Changes in this fork
@@ -89,10 +90,22 @@ These notes duplicated other notes and had no example sentence, so they were rem
 - the second *die Stunde* in the extra vocabulary (it is already in the main list with a sentence)
 - the second *der Tag* in the extra vocabulary
 
+### 5. English → German cards and a cleaner design
+
+- **New card type, "Card 2 (English → German)":** each note now also produces a card that shows the English word and sentence and asks for the German.
+  - The note (`en_note`) sits behind a **show hint** link on this card's question side. Many notes name the German word (e.g. *"false friend: bekommen = to get"*), so showing them automatically would give the answer away.
+  - The answer side shows the note in full, plus the German word, the sentence, and the audio.
+  - Each reverse card shares its forward card's position in the new-card queue, so both directions of a word are introduced together.
+- **Card design:** a cleaner font and softer colours, with night-mode support.
+- **Template files:** `reverse_front_template.txt`, `reverse_back_template.txt`, and `style.css` sit next to the existing template files.
+
+If you only want German → English, suspend the reverse cards: in the Browser, search `card:2`, select all, then **Cards → Toggle Suspend**.
+
 ### Updating from the original deck
 
-The package keeps the original note type and note IDs. If you already use the original deck, importing this `.apkg`
-updates your existing notes in place and adds the new ones. Your review progress is kept.
+The package keeps the original note type and note IDs. If you already use the original deck, import this `.apkg`
+and tick **"Merge note types"** in the import dialog. This is needed because the note type gained a second card type.
+Your existing notes are then updated in place, and the new notes and reverse cards are added. Your review progress is kept.
 Anki doesn't delete notes on import, so the two removed duplicates stay in your collection unless you delete them yourself.
 
 ---
